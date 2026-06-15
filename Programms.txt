@@ -1,0 +1,247 @@
+Data types:
+public class DataTypesDemo {
+    public static void main(String[] args) {
+
+        // -------- Primitive Data Types --------
+        byte b = 100;              // 1 byte
+        short s = 30000;           // 2 bytes
+        int i = 100000;            // 4 bytes
+        long l = 10000000000L;     // 8 bytes
+
+        float f = 3.14f;           // 4 bytes
+        double d = 3.14159265359;  // 8 bytes
+
+        char c = 'A';              // 2 bytes (Unicode character)
+        boolean flag = true;       // 1 bit
+
+        // -------- Non-Primitive Data Types --------
+        String str = "Hello, Java"; // String (class in Java)
+        int[] arr = {1, 2, 3, 4, 5}; // Array
+        Integer wrapperInt = Integer.valueOf(50); // Wrapper class example
+        StringBuilder sb = new StringBuilder("Java"); // Class object
+
+        // -------- Output --------
+        System.out.println("byte: " + b);
+        System.out.println("short: " + s);
+        System.out.println("int: " + i);
+        System.out.println("long: " + l);
+        System.out.println("float: " + f);
+        System.out.println("double: " + d);
+        System.out.println("char: " + c);
+        System.out.println("boolean: " + flag);
+
+        System.out.println("String: " + str);
+        System.out.print("Array: ");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        System.out.println("Wrapper Integer: " + wrapperInt);
+        System.out.println("StringBuilder: " + sb);
+    }
+}
+Output:
+
+byte: 100
+short: 30000
+int: 100000
+long: 10000000000
+float: 3.14
+double: 3.14159265359
+char: A
+boolean: true
+String: Hello, Java
+Array: 1 2 3 4 5 
+Wrapper Integer: 50
+StringBuilder: Java
+
+
+Variables:
+public class VariablesDemo {
+
+    // Instance variable (belongs to each object)
+    int instanceVar = 10;
+
+    // Static variable (shared across all objects of the
+    // class)
+    static String staticVar = "I am static";
+
+    public void showVariables()
+    {
+        // Local variable (declared inside a method)
+        int localVar = 5;
+
+        System.out.println("Instance Variable: "
+                           + instanceVar);
+        System.out.println("Static Variable: " + staticVar);
+        System.out.println("Local Variable: " + localVar);
+    }
+
+    public static void main(String[] args)
+    {
+        // Creating object
+        VariablesDemo obj1 = new VariablesDemo();
+        obj1.showVariables();
+
+        // Accessing static variable directly using class
+        // name
+        System.out.println(
+            "Accessing Static Variable via class: "
+            + VariablesDemo.staticVar);
+    }
+}
+Output:
+
+Instance Variable: 10
+Static Variable: I am static
+Local Variable: 5
+Accessing Static Variable via class: I am static
+
+Operators:
+public class SimpleOperatorsDemo {
+    public static void main(String[] args) {
+        int a = 10, b = 3;
+
+        // Arithmetic Operators
+        System.out.println("a + b = " + (a + b));  // Addition
+        System.out.println("a - b = " + (a - b));  // Subtraction
+
+        // Relational Operator
+        System.out.println("a > b ? " + (a > b));  // Greater than
+
+        // Logical Operator
+        boolean x = true, y = false;
+        System.out.println("x && y = " + (x && y));  // Logical AND
+
+        // Assignment Operator
+        a += 5;  // a = a + 5
+        System.out.println("a after += 5 : " + a);
+
+        // Ternary Operator
+        int max = (a > b) ? a : b;
+        System.out.println("Maximum = " + max);
+    }
+}
+Output:
+
+a + b = 13
+a - b = 7
+a > b ? true
+x && y = false
+a after += 5 : 15
+Maximum = 15
+
+Control Statements:
+public class DecisionMakingDemo {
+    public static void main(String[] args) {
+        int number = 10;
+
+        // if statement
+        if (number > 0) {
+            System.out.println("The number is positive.");
+        }
+
+        // if-else statement
+        if (number % 2 == 0) {
+            System.out.println("The number is even.");
+        } else {
+            System.out.println("The number is odd.");
+        }
+
+        // if-else-if ladder
+        if (number < 0) {
+            System.out.println("The number is negative.");
+        } else if (number == 0) {
+            System.out.println("The number is zero.");
+        } else {
+            System.out.println("The number is positive.");
+        }
+
+        // switch statement
+        int day = 3;
+        switch (day) {
+            case 1:
+                System.out.println("Monday");
+                break;
+            case 2:
+                System.out.println("Tuesday");
+                break;
+            case 3:
+                System.out.println("Wednesday");
+                break;
+            default:
+                System.out.println("Other day");
+        }
+    }
+}
+Output:
+
+The number is positive.
+The number is even.
+The number is positive.
+Wednesday
+
+Looping:
+public class LoopsDemo {
+    public static void main(String[] args) {
+
+        // 1. For loop
+        System.out.println("For Loop:");
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("i = " + i);
+        }
+
+        // 2. While loop
+        System.out.println("\nWhile Loop:");
+        int j = 1;
+        while (j <= 5) {
+            System.out.println("j = " + j);
+            j++;
+        }
+
+        // 3. Do-While loop
+        System.out.println("\nDo-While Loop:");
+        int k = 1;
+        do {
+            System.out.println("k = " + k);
+            k++;
+        } while (k <= 5);
+
+        // 4. Enhanced For Loop (for-each loop)
+        System.out.println("\nEnhanced For Loop:");
+        int[] numbers = {10, 20, 30, 40, 50};
+        for (int num : numbers) {
+            System.out.println("num = " + num);
+        }
+    }
+}
+Ouput:
+
+For Loop:
+i = 1
+i = 2
+i = 3
+i = 4
+i = 5
+
+While Loop:
+j = 1
+j = 2
+j = 3
+j = 4
+j = 5
+
+Do-While Loop:
+k = 1
+k = 2
+k = 3
+k = 4
+k = 5
+
+Enhanced For Loop:
+num = 10
+num = 20
+num = 30
+num = 40
+num = 50
