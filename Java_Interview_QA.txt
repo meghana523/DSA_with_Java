@@ -1,0 +1,266 @@
+================================================================
+        JAVA INTERVIEW QUESTIONS & ANSWERS - QUICK REFERENCE
+================================================================
+
+----------------------------------------------------------------
+1. BASICS OF JAVA
+----------------------------------------------------------------
+
+Q1. What is the difference between JDK, JRE, and JVM?
+A:  JVM - Executes bytecode; platform-specific.
+    JRE - JVM + libraries; used to RUN Java programs.
+    JDK - JRE + compiler + tools; used to DEVELOP Java programs.
+
+Q2. What are the main features of Java?
+A:  Platform-independent, Object-Oriented, Strongly typed,
+    Automatic Garbage Collection, Multithreaded, Secure, Robust.
+
+Q3. What is the difference between == and .equals()?
+A:  == compares memory references.
+    .equals() compares actual content/values.
+    Always use .equals() for String comparison.
+
+Q4. What are the 8 primitive data types in Java?
+A:  byte, short, int, long, float, double, char, boolean.
+
+Q5. What is autoboxing and unboxing?
+A:  Autoboxing  - automatic conversion: int -> Integer.
+    Unboxing    - automatic conversion: Integer -> int.
+
+Q6. What is the difference between compile-time and runtime errors?
+A:  Compile-time: syntax errors caught by the compiler.
+    Runtime: errors that occur during execution (e.g., NullPointerException).
+
+Q7. What is a static variable?
+A:  A variable shared across all instances of a class.
+    Declared with the 'static' keyword; belongs to the class, not objects.
+
+----------------------------------------------------------------
+2. OPERATIONS
+----------------------------------------------------------------
+
+Q8. What is the difference between >> and >>> operators?
+A:  >>  - Signed right shift; preserves sign bit.
+    >>> - Unsigned right shift; fills with 0s.
+
+Q9. What is short-circuit evaluation?
+A:  &&  - If left is false, right side is NOT evaluated.
+    ||  - If left is true, right side is NOT evaluated.
+    Prevents NullPointerException: obj != null && obj.getValue() > 0
+
+Q10. What does the modulo (%) operator do?
+A:  Returns remainder of division. Ex: 10 % 3 = 1.
+    Used for even/odd checks, cycling indexes, etc.
+
+Q11. What is the difference between prefix and postfix increment?
+A:  ++i (prefix)  - increments first, then uses the value.
+    i++ (postfix) - uses the value first, then increments.
+
+----------------------------------------------------------------
+3. FUNCTIONS (METHODS)
+----------------------------------------------------------------
+
+Q12. What is method overloading vs method overriding?
+A:  Overloading  - same name, different parameters; compile-time.
+    Overriding   - subclass redefines parent method; runtime.
+
+Q13. What is the difference between static and instance methods?
+A:  Static   - belongs to class; called via ClassName.method();
+               cannot access instance variables.
+    Instance - belongs to object; can access both static and instance members.
+
+Q14. Can a constructor be overloaded?
+A:  Yes. Multiple constructors can exist with different parameter lists.
+    Java calls the matching constructor based on arguments passed.
+
+Q15. What is a varargs method?
+A:  Accepts variable number of arguments: void print(String... args)
+    Treated as an array internally; must be the last parameter.
+
+Q16. What is a recursive method?
+A:  A method that calls itself.
+    Must have a base condition to avoid StackOverflowError.
+
+Q17. What is the return type of a constructor?
+A:  Constructors have NO return type (not even void).
+
+----------------------------------------------------------------
+4. OBJECT-ORIENTED PROGRAMMING (OOPs)
+----------------------------------------------------------------
+
+Q18. What are the 4 pillars of OOP?
+A:  Encapsulation  - hiding data using access modifiers.
+    Inheritance    - child class reuses parent class code.
+    Polymorphism   - one interface, many forms.
+    Abstraction    - hiding implementation, showing only essentials.
+
+Q19. What is the difference between abstract class and interface?
+A:  Abstract class - can have concrete methods, constructors, fields;
+                     supports single inheritance.
+    Interface      - all methods abstract by default (Java 8+ allows
+                     default/static methods); supports multiple implementation.
+
+Q20. What is the difference between IS-A and HAS-A?
+A:  IS-A  - inheritance:   Dog extends Animal  (Dog IS-A Animal).
+    HAS-A - composition:   Car has an Engine   (prefer this for flexibility).
+
+Q21. What is the 'final' keyword?
+A:  final variable - constant; cannot be reassigned.
+    final method   - cannot be overridden.
+    final class    - cannot be extended (e.g., String class).
+
+Q22. What is the 'super' keyword?
+A:  Refers to parent class.
+    super()        - calls parent constructor.
+    super.method() - calls parent method.
+
+Q23. What is the difference between method overriding and hiding?
+A:  Overriding - instance methods; resolved at runtime (polymorphism).
+    Hiding     - static methods; resolved at compile-time based on reference type.
+
+Q24. What is an abstract class?
+A:  A class declared with 'abstract'; cannot be instantiated.
+    May contain abstract methods (no body) and concrete methods.
+
+----------------------------------------------------------------
+5. CONTROL STATEMENTS
+----------------------------------------------------------------
+
+Q25. What is the difference between break and continue?
+A:  break    - exits the loop entirely.
+    continue - skips current iteration; moves to next.
+
+Q26. What is the difference between while and do-while?
+A:  while    - checks condition first; may run 0 times.
+    do-while - runs body first, then checks; runs at least once.
+
+Q27. Can you use switch with String in Java?
+A:  Yes, since Java 7. Java 14+ supports switch expressions:
+    String result = switch(day) { case "MON" -> "Weekday"; default -> "Other"; };
+
+Q28. What is a labeled break?
+A:  Breaks out of an outer/nested loop using a label:
+    outer: for(...) { for(...) { break outer; } }
+
+Q29. What is the difference between if-else and switch?
+A:  if-else  - works with any boolean expression; flexible.
+    switch   - works with int, char, String, enum; faster for equality checks.
+
+----------------------------------------------------------------
+6. STRING WITH METHODS AND FUNCTIONS
+----------------------------------------------------------------
+
+Q30. Why is String immutable in Java?
+A:  Strings are stored in a String pool and shared between references.
+    Immutability ensures thread safety, security, and hashCode caching.
+    Any modification creates a NEW String object.
+
+Q31. What is the difference between String, StringBuilder, StringBuffer?
+A:  String        - immutable.
+    StringBuilder - mutable, NOT thread-safe, faster.
+    StringBuffer  - mutable, thread-safe (synchronized), slower.
+    Use StringBuilder for single-threaded string manipulation.
+
+Q32. What does String.intern() do?
+A:  Places the string in the String pool (or returns the existing pooled reference).
+    Useful to save memory when many duplicate strings exist.
+
+Q33. List common String methods.
+A:  length(), charAt(), substring(), indexOf(), contains(),
+    replace(), split(), trim(), toUpperCase(), toLowerCase(),
+    equals(), equalsIgnoreCase(), startsWith(), endsWith(), isEmpty().
+
+Q34. How do you reverse a String in Java?
+A:  Use StringBuilder:
+    new StringBuilder("hello").reverse().toString();  // "olleh"
+
+Q35. What is the difference between String.equals() and String.compareTo()?
+A:  equals()    - returns true/false (equality check).
+    compareTo() - returns int; 0 if equal, negative/positive otherwise (lexicographic).
+
+----------------------------------------------------------------
+7. ARRAYS
+----------------------------------------------------------------
+
+Q36. What is the difference between array and ArrayList?
+A:  Array     - fixed size; stores primitives; faster.
+    ArrayList - dynamic size; stores objects (autoboxing); has utility methods.
+
+Q37. How do you sort an array in Java?
+A:  Arrays.sort(arr)                  - natural order.
+    Arrays.sort(arr, Comparator)      - custom order.
+    Uses Dual-Pivot Quicksort for primitives, TimSort for objects.
+
+Q38. What is a jagged array?
+A:  An array of arrays where each row has a different length.
+    int[][] jagged = new int[3][];
+    jagged[0] = new int[2];  jagged[1] = new int[4];
+
+Q39. How do you copy an array?
+A:  System.arraycopy()       - fast, manual control.
+    Arrays.copyOf()          - copy with new length.
+    Arrays.copyOfRange()     - partial copy.
+    .clone()                 - shallow copy.
+
+Q40. What is the default value of array elements?
+A:  int/long/short/byte  -> 0
+    float/double         -> 0.0
+    boolean              -> false
+    char                 -> '\u0000'
+    Object references    -> null
+
+Q41. What is the difference between length and length() in Java?
+A:  array.length    - field; gives size of array.
+    string.length() - method; gives length of String.
+
+----------------------------------------------------------------
+8. MULTITHREADING
+----------------------------------------------------------------
+
+Q42. What is the difference between Thread class and Runnable interface?
+A:  Thread   - extending limits you to single inheritance; less flexible.
+    Runnable - preferred; separates task from thread; class can extend others.
+
+Q43. What is the difference between synchronized method and synchronized block?
+A:  Synchronized method - locks entire method on 'this'.
+    Synchronized block  - locks specific section on a chosen object;
+                          more granular and better performance.
+
+Q44. What is a deadlock? How do you prevent it?
+A:  Deadlock: two threads each hold a lock the other needs -> infinite wait.
+    Prevention:
+    - Always acquire locks in the same fixed order.
+    - Use tryLock() with a timeout.
+    - Minimize lock scope.
+    - Use high-level concurrency utilities (java.util.concurrent).
+
+Q45. What is the volatile keyword?
+A:  Ensures a variable is always read/written from main memory, not thread cache.
+    Guarantees VISIBILITY across threads but NOT atomicity.
+
+Q46. What is the difference between wait() and sleep()?
+A:  wait()  - releases the lock; must be inside synchronized block;
+              waits until notified via notify()/notifyAll().
+    sleep() - does NOT release the lock; pauses thread for fixed time;
+              can be called anywhere.
+
+Q47. What are thread states in Java?
+A:  NEW -> RUNNABLE -> BLOCKED/WAITING/TIMED_WAITING -> TERMINATED.
+
+Q48. What is the difference between notify() and notifyAll()?
+A:  notify()    - wakes up ONE waiting thread (unpredictable which one).
+    notifyAll() - wakes up ALL waiting threads; they compete for the lock.
+
+Q49. What is a daemon thread?
+A:  A background thread (e.g., Garbage Collector) that runs as long as
+    non-daemon threads are running. Set via thread.setDaemon(true)
+    before starting the thread.
+
+Q50. What is the Executor framework?
+A:  A higher-level API to manage thread pools.
+    ExecutorService pool = Executors.newFixedThreadPool(5);
+    pool.submit(task);
+    Avoids manual thread creation; better resource management.
+
+================================================================
+        
