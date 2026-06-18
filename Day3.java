@@ -740,7 +740,7 @@ class Day3
 }*/
 
 
-//Rhombus using stars
+//Hallow Rhombus using stars
 /*import java.util.*;
 class Day3
 {
