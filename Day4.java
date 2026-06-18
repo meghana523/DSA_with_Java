@@ -1,3 +1,16 @@
+/*
+import java.util.*;
+class Day4
+{
+    public static void main(String[] args)
+    {
+        int a[]={10,20,30,40,50};
+        for(int i=0;i<a.length-1;i++)
+        {
+            System.out.println(a[i]);
+        }
+    }
+}*/
 //Basic programm of array
 /*import java.util.*;
 class Day4
@@ -224,8 +237,141 @@ class Day4
     }
 }*/
 
+//array rotation using loops
+/*import java.util.*;
+class Day4
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int res[] = new int[n];
+        int a[] = new int[n];
+        for(int i=0;i<n;i++)
+        {
+            a[i] = sc.nextInt();
+        }
+        int k=sc.nextInt();
+        k=k%n;
+        /*for(int i=0;i<n;i++)  //right rotation 
+        {
+            res[(i+k)%n] = a[i];
+        }*/
+       /*for(int i=0;i<n;i++)
+       {
+            res[i]=a[(i+k)%n];
+       }
+        for(int i=0;i<n;i++)
+        {
+            System.out.print(res[i]+" ");
+        }
+        
+    }
+}
+*/
+
+//Moving zeros to end
+/*import java.util.*;
+class Day4{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int a[] = new int[n];
+        int index=0;
+        for(int i=0;i<a.length;i++)
+        {
+            a[i]=sc.nextInt();
+        }
+        for(int i=0;i<a.length;i++)
+        {
+            if(a[i]!=0)
+            {
+                a[index++]=a[i];
+            }
+        }
+        while(index<a.length)
+        {
+            a[index++]=0;
+        }
+        for(int i=0;i<n;i++)
+        {
+            System.out.print(a[i]+" ");
+        }
+    }
+}*/
+
+//subarray sum
+/*import java.util.*;
+class Day4
+{
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int n = sc.nextInt();
+        int a[]=new int[n];
+        int sum=0;
+        for(int i=0;i<=a.length-1;i++)
+        {
+            a[i]=sc.nextInt();
+        }
+        for(int i=0;i<=n-1;i++)
+        {
+            for(int j=1;j<=n-1;j++)
+            {
+                sum=0;
+                for(int k=i;k<=j;k++)
+                {
+                    sum=sum+a[k];
+                }
+                System.out.println(sum);
+            }
+        }
+    }
+}*/
+
+//subarray sum using target sum if sum is equal to target then print target found
 import java.util.*;
 class Day4
 {
-    
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int a[] = new int[n];
+
+        for(int i = 0; i < n; i++)
+        {
+            a[i] = sc.nextInt();
+        }
+
+        int target = sc.nextInt();
+        boolean found = false;
+
+        for(int i = 0; i < n; i++)
+        {
+            int sum = 0;
+            for(int j = i; j < n; j++)
+            {
+                sum += a[j];
+                if(sum == target)
+                {
+                    System.out.println("Target found");
+                    found = true;
+                    break;
+                }
+            }
+            if(found)
+            {
+                break;
+            }
+        }
+
+        if(!found)
+        {
+            System.out.println("Target not found");
+        }
+
+        sc.close();
+    }
 }
