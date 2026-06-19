@@ -71,3 +71,76 @@ Example 2:
 
 Input: s = ["H","a","n","n","a","h"]
 Output: ["h","a","n","n","a","H"]*/
+
+//if a sentence was given we need to count the vowels ,spaces,consonants and alphanumeric characters
+/*import java.util.*;
+class Day5
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a sentence: ");
+        String s1 = sc.nextLine();
+        int vowels=0,spaces=0,consonants=0,alphanumeric=0;
+        for(int i=0;i<s1.length();i++)
+        {
+            char ch=s1.charAt(i);
+            if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u'||ch=='A'||ch=='E'||ch=='I'||ch=='O'||ch=='U')
+            {
+                vowels++;
+            }
+            else 
+            {
+                if(ch==' ')
+                {
+                    spaces++;
+                }
+                else if((ch>='a'&&ch<='z')||(ch>='A'&&ch<='Z'))
+                {
+                    consonants++;
+                }
+                else if((ch>='0'&&ch<='9'))
+                {
+                    alphanumeric++;
+                }
+            }
+        }
+        System.out.println("Number of vowels: " + vowels);
+        System.out.println("Number of spaces: " + spaces);
+        System.out.println("Number of consonants: " + consonants);
+        System.out.println("Number of alphanumeric characters: " + alphanumeric);
+    }
+}*/
+
+// valid anagram of a string
+import java.util.*;
+class Day5
+{
+    public static void main(String[] args)          
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String s1 = sc.nextLine();
+        System.out.print("Enter another string: ");
+        String s2 = sc.nextLine();
+        if(s1.length()!=s2.length())
+        {
+            System.out.println("Not an anagram");   
+        }
+        else
+        {
+            char[] arr1=s1.toCharArray();
+            char[] arr2=s2.toCharArray();
+            Arrays.sort(arr1);
+            Arrays.sort(arr2);
+            if(Arrays.equals(arr1,arr2))
+            {
+                System.out.println("Anagram");
+            }
+            else
+            {
+                System.out.println("Not an anagram");
+            }
+        }
+    }
+}
