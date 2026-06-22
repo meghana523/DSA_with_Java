@@ -331,7 +331,7 @@ class Day4
 }*/
 
 //subarray sum using target sum if sum is equal to target then print target found
-import java.util.*;
+/*import java.util.*;
 class Day4
 {
     public static void main(String[] args)
@@ -374,4 +374,31 @@ class Day4
 
         sc.close();
     }
+}*/
+
+//Given a array of integers, print all armstrong numbers in the array
+import java.util.*;
+class Day4
+{
+    public static void main(String[] args)
+    {
+        int a[]= {153, 370, 371, 10, 20, 30, 40, 50,407,1634};
+        for(int i=0;i<a.length;i++)
+        {
+            int num = a[i];
+            int temp = num;
+            int sum = 0;
+            while(temp>0)
+            {
+                int rem = temp % 10;
+                sum = sum + rem*rem*rem;
+                temp = temp / 10;
+            }
+            if(sum == num)
+            {
+                System.out.println(num);
+            }
+        }
+    }
 }
+  
