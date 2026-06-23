@@ -41,6 +41,8 @@ DSA :
 9) Given a 2D matrix (rows sorted, first element of each row > last of previous), search a target in O(log(m×n)).(Leetcode-74)
 
 10) Median of Two Sorted Arrays of sizes m and n in O(log(min(m,n))). Hard(leetcode-4)
+ 
+11) Capacity to ship packages within D days(leetcode-1011)
 
 # Homework Problem 
 

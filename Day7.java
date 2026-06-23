@@ -1,4 +1,6 @@
 // Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value using binary search print the output in array.
+import java.util.*;
+
 /*class Day7
 {
     public static int check_left(int[] a, int target)
@@ -215,3 +217,202 @@
 } */
 
 //Book Allocation Problem: N books with pages, M students — allocate books to minimise the maximum pages assigned to any student.
+/*class Day7
+{
+    public static boolean isPossible(int[] arr, int n, int m, int mid)
+    {
+        int studentCount = 1;
+        int pageSum = 0;
+        for(int i=0; i<n; i++)
+        {
+            if(pageSum + arr[i] <= mid)
+            {
+                pageSum += arr[i];
+            }
+            else
+            {
+                studentCount++;
+                if(studentCount > m || arr[i] > mid)
+                {
+                    return false;
+                }
+                pageSum = arr[i];
+            }
+        }
+        return true;
+    }
+    public static int allocateBooks(int[] arr, int n, int m)
+    {
+        int sum = 0;
+        for(int i=0; i<n; i++)
+        {
+            sum += arr[i];
+        }
+        int start = 0;
+        int end = sum;
+        int ans = -1;
+        while(start <= end)
+        {
+            int mid = start + (end - start) / 2;
+            if(isPossible(arr, n, m, mid))
+            {
+                ans = mid;
+                end = mid - 1;
+            }
+            else
+            {
+                start = mid + 1;
+            }
+        }
+        return ans;
+    }
+    public static void main(String[] args)
+    {
+        int[] arr = {12, 34, 67, 90};
+        int n = arr.length;
+        int m = 2; // Number of students
+        System.out.println(allocateBooks(arr, n, m));
+    }
+}*/
+
+//Given a sorted rotated array, find the minimum element
+/*class Day7
+{
+    public static int findMin(int[] nums) {
+        int low = 0;
+        int high = nums.length - 1;
+
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+
+            if (nums[mid] > nums[high]) {
+                low = mid + 1; 
+            } else {
+                high = mid; 
+            }
+        }
+
+        return nums[low]; 
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {4, 5, 6, 7, 0, 1, 2};
+        System.out.println(findMin(nums)); 
+    }
+}*/
+
+//Aggressive Cows: place C cows in N stalls to maximise the minimum distance between any two cows.
+/*class Day7
+{
+    public static boolean isPossible(int[] stalls, int n, int c, int mid)
+    {
+        int count = 1;
+        int lastPosition = stalls[0];
+
+        for(int i=1; i<n; i++)
+        {
+            if(stalls[i] - lastPosition >= mid)
+            {
+                count++;
+                lastPosition = stalls[i];
+            }
+            if(count == c)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static int aggressiveCows(int[] stalls, int n, int c)
+    {
+        Arrays.sort(stalls);
+        int start = 0;
+        int end = stalls[n-1] - stalls[0];
+        int ans = -1;
+
+        while(start <= end)
+        {
+            int mid = start + (end - start) / 2;
+            if(isPossible(stalls, n, c, mid))
+            {
+                ans = mid;
+                start = mid + 1;
+            }
+            else
+            {
+                end = mid - 1;
+            }
+        }
+        return ans;
+    }
+
+    public static void main(String[] args)
+    {
+        int[] stalls = {1, 2, 4, 8, 9};
+        int n = stalls.length;
+        int c = 3; // Number of cows
+        System.out.println(aggressiveCows(stalls, n, c));
+    }
+}*/
+
+//Painter's Partition Problem: Given N boards and K painters, minimize the time to paint all boards. Each painter paints continuous boards.
+/*class Day7
+{
+    public static boolean isPossible(int[] boards, int n, int k, int mid)
+    {
+        int painterCount = 1;
+        int timeSum = 0;    
+        for(int i=0; i<n; i++)
+        {
+            if(timeSum + boards[i] <= mid)
+            {
+                timeSum += boards[i];
+            }
+            else
+            {
+                painterCount++;
+                if(painterCount > k || boards[i] > mid)
+                {
+                    return false;
+                }
+                timeSum = boards[i];
+            }
+        }
+        return true;
+    }
+    public static int painterPartition(int[] boards, int n, int k)
+    {
+        int sum = 0;
+        for(int i=0; i<n; i++)
+        {
+            sum += boards[i];
+        }
+        int start = 0;
+        int end = sum;
+        int ans = -1;
+        while(start <= end)
+        {
+            int mid = start + (end - start) / 2;
+            if(isPossible(boards, n, k, mid))
+            {
+                ans = mid;
+                end = mid - 1;
+            }
+            else
+            {
+                start = mid + 1;
+            }
+        }
+        return ans;
+    }
+    public static void main(String[] args)
+    {
+        int[] boards = {10, 20, 30, 40};
+        int n = boards.length;
+        int k = 2; // Number of painters
+        System.out.println(painterPartition(boards, n, k));
+    }
+}
+*/
+
